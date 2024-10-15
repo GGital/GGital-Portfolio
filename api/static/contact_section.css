@@ -1,0 +1,33 @@
+.footer {
+  margin-top: 100px;
+  background-color: #1A2B3C;
+  padding: 2rem 0;
+  text-align: center;
+}
+.social-icons {
+  margin-bottom: 1.5rem;
+}
+.social-icons a {
+  color: #4FC3F7;
+  font-size: 1.5rem;
+  margin: 0 0.5rem;
+  transition: color 0.3s ease;
+}
+.social-icons a:hover {
+  color: #81D4FA;
+}
+.nav-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.nav-links a {
+  color: #E0F7FA;
+  text-decoration: none;
+  margin: 0 1rem;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+.nav-links a:hover {
+  color: #4FC3F7;
+}

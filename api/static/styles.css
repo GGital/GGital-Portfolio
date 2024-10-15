@@ -1,0 +1,119 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter, sans-serif;
+  letter-spacing: -0.02em;
+
+}
+
+body {
+  background-color: #000; /* Black background */
+  color: #fff; /* White text */
+}
+
+
+.hero {
+  height: 100vh;
+  box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.5);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: fadeBackground 20s infinite; /* Fading background effect */
+}
+
+.hero-text h1 {
+  color: #fff;
+}
+
+.typed-text {
+  color: #00aaff;
+}
+
+/* Background change animation */
+@keyframes fadeBackground {
+  0% {
+    background-image: url('images/index/hero1.jpg');
+  }
+  33% {
+    background-image: url('images/index/hero2.jpg');
+  }
+  66% {
+    background-image: url('images/index/hero3.jpg');
+  }
+  100% {
+    background-image: url('images/index/hero4.jpg');
+  }
+}
+
+/* Other styles */
+.gallery h2, .contact h2 {
+  color: #fff;
+}
+
+.carousel-caption h5 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: #fff;
+}
+
+.carousel-caption p {
+  color: #00aaff;
+}
+
+.about-section {
+  background-color: #1a1a2e; /* Dark blue background */
+  padding: 40px 0;
+}
+
+.about-image img {
+  border: 5px solid #00aaff;
+  width: 80%;
+  animation: glowEffect 2s ease-in-out infinite alternate, fadeIn 4s ease-in-out;
+}
+
+/* Modern and Classic Font for Description */
+.about-text h2 {
+  font-size: 3.0rem;
+  font-family: Inter, sans-serif; /* Modern serif font */
+}
+
+.about-description {
+  font-family: Inter, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.8;
+  color: #eaeaea; /* Light text for contrast */
+}
+
+/* Animation for Motto */
+.motto {
+  font-size: 2.0rem;
+  font-weight: 700;
+  color: #00aaff;
+  position: relative;
+}
+
+.motto-text {
+  display: inline-block;
+  animation: glowEffect 2s ease-in-out infinite alternate, fadeIn 4s ease-in-out;
+}
+
+@keyframes glowEffect {
+  0% {
+    text-shadow: 0 0 10px #00aaff, 0 0 15px #00aaff, 0 0 20px #00aaff;
+  }
+  100% {
+    text-shadow: 0 0 20px #00aaff, 0 0 30px #00aaff, 0 0 40px #00aaff;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

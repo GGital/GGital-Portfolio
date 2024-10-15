@@ -1,0 +1,28 @@
+.animate-element {
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.animate-element.slide-down {
+    transform: translateY(-30px);
+}
+
+.animate-element.slide-up {
+    transform: translateY(30px);
+}
+
+.animate-element.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.bubble {
+    position: fixed;
+    z-index: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    width: 40px;  /* Fixed width */
+    height: 40px; /* Fixed height */
+    object-fit: cover; /* This ensures the image covers the fixed dimensions */
+    border-radius: 50%; /* Optional: makes the bubbles circular */
+}

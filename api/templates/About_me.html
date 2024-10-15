@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/inter/3.19.3/inter.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='contact_section.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='section_decoration.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='transition.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='about_me.css') }}">
+</head>
+<div>
+      <!-- Enhanced Navigation Bar using Bootstrap -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-top shadow-sm">
+    <div class="container-fluid">
+      <a class="navbar-brand animate-element" href="#">
+        <i class="fas fa-laptop-code animate-element"></i> GGital
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link animate-element" aria-current="page" href="{{ url_for('index') }}">
+              <i class="fas fa-home animate-element"></i> Home
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link animate-element" href="{{ url_for('portfolio') }}">
+              <i class="fas fa-briefcase animate-element"></i> Portfolio
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link animate-element" href="{{ url_for('popgital') }}">
+              <i class="fas fa-code animate-element"></i> PopGital
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link animate-element" href="{{ url_for('info') }}">
+              <i class="fas fa-envelope animate-element"></i> Profile
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Content -->
+    <div class="container content-container">
+      <div class="row">
+          <!-- Left side content -->
+          <div class="col-lg-6">
+              <div class="content">
+                  <h2 class="About-me-text">About me:</h2>
+                  <p><span class="subject">Name: </span>Phattaratorn Mahatkeerati</p>
+                  <p><span class="subject">Nickname: </span>Gital</p>
+                  <p><span class="subject">Date of Birth: </span>30/01/2006</p>
+                  <p><span class="subject">Age: </span>17</p>
+                  <p><span class="subject">Phone: </span>095-553-1132</p>
+                  <p><span class="subject">Email: </span>sakukiheng@gmail.com</p>
+                  <p><span class="subject">Favorite subjects: </span>Mathematics, Computer, Physics</p>
+                  <p><span class="subject">School: </span>Saint Gabriel's College</p>
+  
+                  <h2 class="Skills-text mt-4">My Skills</h2>
+                  
+                  <div class="row">
+                      <div class="col-4 text-center mb-3">
+                          <img class="skill-image" src="./images/about_me/C.png" alt="C"><br>C
+                      </div>
+                      <div class="col-4 text-center mb-3">
+                          <img class="skill-image" src="./images/about_me/cpp.png" alt="C++"><br>C++
+                      </div>
+                      <div class="col-4 text-center mb-3">
+                          <img class="skill-image" src="./images/about_me/c-sharp.png" alt="C#"><br>C#
+                      </div>
+                      <div class="col-4 text-center mb-3">
+                          <img class="skill-image" src="./images/about_me/HTML5.png" alt="HTML"><br>HTML
+                      </div>
+                      <div class="col-4 text-center mb-3">
+                          <img class="skill-image" src="./images/about_me/CSS-Logo.png" alt="CSS"><br>CSS
+                      </div>
+                      <div class="col-4 text-center mb-3">
+                          <img class="skill-image" src="./images/about_me/javascript.png" alt="JavaScript"><br>JavaScript
+                      </div>
+                      <div class="col-4 text-center mb-3">
+                          <img class="skill-image" src="./images/about_me/Python.png" alt="Python"><br>Python
+                      </div>
+                      <div class="col-4 text-center mb-3">
+                          <img class="skill-image" src="./images/about_me/Pandas.png" alt="Pandas"><br>Data Science
+                      </div>
+                      <div class="col-4 text-center mb-3">
+                          <img class="skill-image" src="./images/about_me/ChatGPT-Emblem.png" alt="AI"><br>AI (regression, image, GPT, RVC)
+                      </div>
+                  </div>
+              </div>
+          </div>
+  
+          <!-- Placeholder for image on the right side -->
+          <div class="col-lg-6 d-flex justify-content-center align-items-center" style="height: 100%;">
+              <div class="image-placeholder w-100 h-100">
+                <img src="{{ url_for('static', filename='images/profile/MyPhoto.jpg') }}" alt="Image Placeholder" class="w-100 h-100 object-fit-cover">
+              </div>
+          </div>
+      </div>
+    </div>
+  
+  <footer class="footer">
+    <div class="social-icons">
+        <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="#" target="_blank" aria-label="Discord"><i class="fab fa-discord"></i></a>
+    </div>
+    <nav class="nav-links">
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('portfolio') }}">About</a>
+        <a href="{{ url_for('popgital') }}">Projects</a>
+        <a href="{{ url_for('info') }}">Contact</a>
+    </nav>
+  </footer>
+
+    <script src="static/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

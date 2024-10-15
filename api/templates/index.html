@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='contact_section.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='navbar.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='transition.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='section_decoration.css') }}">
+</head>
+<body>
+  <!-- Enhanced Navigation Bar using Bootstrap -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-top shadow-sm">
+    <div class="container-fluid">
+      <a class="navbar-brand animate-element" href="#">
+        <i class="fas fa-laptop-code animate-element"></i> GGital
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link animate-element" aria-current="page" href="{{ url_for('index') }}">
+              <i class="fas fa-home animate-element"></i> Home
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link animate-element" href="{{ url_for('portfolio') }}">
+              <i class="fas fa-briefcase animate-element"></i> Portfolio
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link animate-element" href="{{ url_for('popgital') }}">
+              <i class="fas fa-code animate-element"></i> PopGital
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link animate-element" href="{{ url_for('info') }}">
+              <i class="fas fa-envelope animate-element"></i> Profile
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section with Typing Animation and Background Fade -->
+  <section id="home" class="hero d-flex align-items-center justify-content-center">
+    <div class="hero-text text-center">
+      <h1 class="display-4 bg-dark">Hello, I'm <span class="typed-text"></span></h1>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about-section d-flex align-items-center my-5 content-section">
+    <div class="container d-flex">
+      <!-- Left Part: Picture -->
+      <div class="about-image col-lg-6 text-center animate-element">
+        <img src="{{ url_for('static', filename='images/index/Me.jpg') }}" class="img-fluid rounded-circle" alt="Profile Picture">
+      </div>
+
+      <!-- Right Part: Introduction and Animated Motto -->
+      <div class="about-text col-lg-6 d-flex flex-column justify-content-center text-light">
+        <h2 class="mb-3 text-center section-topic animate-element">About Me</h2>
+        <p class="about-description animate-element">
+          Hello! I'm Gital, I am now a passionate freshman at KMUTT in the field of Computer Engineering (CPE) who is working hard to get a great offer in his career path.
+        </p>
+        <p class="about-description animate-element">
+          I am looking forward to work as an AI engineer specialized in Computer Vision or a Data Scientist. 
+        </p>
+        <p class="motto text-primary font-italic animate-element">
+          <span class="motto-text">"Believe you can ,and you're halfway there."</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Sliding Gallery Section with Bootstrap Carousel -->
+  <div class = "content-section"> 
+  <section id="portfolio" class="gallery container my-5">
+    <h2 class="section-topic text-light mb-4 text-center">My Recent Work</h2>
+    <div id="carouselExampleControls" class="carousel slide animate-element" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active animate-element">
+          <img src="https://via.placeholder.com/800x400/001f3f/fff?text=Project+1" class="d-block w-100" alt="Project 1">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Project 1: Web Design</h5>
+            <p>A sleek and modern website for a local business.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://via.placeholder.com/800x400/007bff/fff?text=Project+2" class="d-block w-100" alt="Project 2">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Project 2: Mobile App</h5>
+            <p>A responsive and user-friendly app for event management.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://via.placeholder.com/800x400/17a2b8/fff?text=Project+3" class="d-block w-100" alt="Project 3">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Project 3: E-commerce Platform</h5>
+            <p>An online marketplace built for seamless transactions.</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev animate-element" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next animate-element" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </section>
+</div>
+<div class="content-section"> 
+    <div class="col-12 col-md-10 col-lg-8">
+      <h2 class="section-topic text-center w-100 fs-1">Contact Me</h2>
+      <form class="contact-form" action="{{ url_for('send_email') }}" method="POST">
+        <div class="mb-3">
+          <label for="name" class="form-label">Your Name</label>
+          <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Your Email</label>
+          <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="mb-3">
+          <label for="message" class="form-label">Your Message</label>
+          <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+        </div>
+        <div class="d-grid">
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </div>
+      </form>
+    </div>
+</div>
+
+
+
+<footer class="footer">
+  <div class="social-icons">
+      <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="#" target="_blank" aria-label="Discord"><i class="fab fa-discord"></i></a>
+  </div>
+  <nav class="nav-links">
+      <a href="{{ url_for('index') }}">Home</a>
+      <a href="{{ url_for('portfolio') }}">About</a>
+      <a href="{{ url_for('popgital') }}">Projects</a>
+      <a href="{{ url_for('info') }}">Contact</a>
+  </nav>
+</footer>
+  
+
+<!-- Modal -->
+<div class="modal fade" id="promoModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="promoModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-dark" id="promoModalLabel">อย่าลืมไปสนับสนุน Mixue กันเยอะๆนะครับ</h5>
+        <button type="button" class="btn-close btn-sm" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="/static/Best_PIC.jpg" class="img-fluid" alt="Mixue promotion">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      
+      // Play music
+      const audio = new Audio('/static/mixue.mp3');
+      
+      audio.loop = false;
+
+      document.addEventListener('click', function handleUserInteraction() {
+      // Remove the listener to prevent multiple triggers
+      document.removeEventListener('click', handleUserInteraction);
+      
+      // 35% chance to show the modal
+      const shouldShowModal = Math.random() < 0.35;
+      
+      if (shouldShowModal) {
+        const promoModal = new bootstrap.Modal(document.getElementById('promoModal'), {
+          backdrop: 'static',
+          keyboard: false
+        });
+
+        // Show modal
+        promoModal.show();
+
+        // Play the music when the modal is shown
+        document.getElementById('promoModal').addEventListener('shown.bs.modal', function () {
+          audio.play().catch(error => {
+            console.log('Failed to play audio:', error);
+          });
+        });
+      }
+    });
+  });
+</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="static/script.js"></script>
+  <script src="static/scripts/section.js"> </script>
+</body>
+</html>
