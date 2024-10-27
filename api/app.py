@@ -51,7 +51,27 @@ def popgital() :
 
 @app.route('/info')
 def info() :
-    return render_template('About_me.html')
+    education = [
+        {
+            "name": "Saint Gabriel's College",
+            "degree": "Primary School",
+            "year": "2011-2017",
+            "logo": "images/profile/SG.png"  # Path relative to static folder
+        },
+        {
+            "name": "Saint Gabriel's College",
+            "degree": "High School",
+            "year": "2017-2023",
+            "logo": "images/profile/SG.png"
+        },
+        {
+            "name": "KMUTT",
+            "degree": "Undergraduate degree",
+            "year": "2024-Now",
+            "logo": "images/profile/KMUTT.png"
+        }
+    ]
+    return render_template('About_me.html' , education=education)
 
 if __name__ == '__main__':
     app.run(debug=True , threaded = True)

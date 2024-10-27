@@ -1,0 +1,172 @@
+<!-- templates/components/education_timeline.html -->
+<style>
+    /* Modern font imports */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Inter:wght@400;500;600&display=swap');
+
+    .education-timeline {
+        position: relative;
+        padding: 20px 0;
+        font-family: 'Inter', sans-serif;
+    }
+
+    .education-timeline::before {
+        content: '';
+        position: absolute;
+        width: 2px;
+        background-color: #1e3a8a;
+        top: 0;
+        bottom: 0;
+        left: 84px; /* Adjusted for larger logo */
+        margin-left: -1px;
+    }
+
+    .timeline-item {
+        margin-bottom: 40px; /* Increased spacing between items */
+        position: relative;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .timeline-logo {
+        position: absolute;
+        width: 128px; /* Increased size */
+        height: 128px; /* Increased size */
+        background: #0f172a;
+        border: 3px solid #1e3a8a; /* Slightly thicker border */
+        border-radius: 50%;
+        left: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+        transition: transform 0.3s ease;
+        padding: 15px; /* Added padding for logo inside */
+    }
+
+    .timeline-logo:hover {
+        transform: scale(1.05);
+    }
+
+    .timeline-logo img {
+        max-width: 85%;
+        max-height: 85%;
+        object-fit: contain;
+        filter: brightness(1.1);
+    }
+
+    .timeline-content {
+        margin-left: 170px; /* Adjusted for larger logo */
+        padding: 30px; /* Increased padding */
+        background: #1a1a1a;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        border: 1px solid #1e3a8a;
+        max-width: calc(100% - 190px); /* Adjusted for larger logo */
+        transition: transform 0.3s ease;
+    }
+
+    .timeline-content:hover {
+        transform: translateX(5px);
+    }
+
+    .timeline-content h3 {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        color: #ffffff;
+        margin-bottom: 0.5rem;
+        font-size: 1.5rem; /* Slightly larger font */
+        letter-spacing: -0.02em;
+    }
+
+    .timeline-content .degree {
+        color: #93c5fd;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+        font-size: 1.125rem; /* Slightly larger font */
+    }
+
+    .timeline-content .year {
+        color: #64748b;
+        font-size: 1rem;
+        font-weight: 400;
+    }
+
+    .timeline-item:hover .timeline-logo {
+        border-color: #2563eb;
+    }
+
+    /* Tablet Responsive */
+    @media (max-width: 768px) {
+        .education-timeline::before {
+            left: 64px;
+        }
+
+        .timeline-logo {
+            width: 96px; /* Reduced size for tablet */
+            height: 96px;
+            left: 15px;
+        }
+
+        .timeline-content {
+            margin-left: 130px;
+            padding: 25px;
+            max-width: calc(100% - 150px);
+        }
+        
+        .timeline-content h3 {
+            font-size: 1.25rem;
+        }
+        
+        .timeline-content .degree {
+            font-size: 1rem;
+        }
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 576px) {
+        .education-timeline::before {
+            left: 44px;
+        }
+
+        .timeline-logo {
+            width: 64px; /* Further reduced size for mobile */
+            height: 64px;
+            left: 12px;
+            border-width: 2px;
+        }
+
+        .timeline-content {
+            margin-left: 90px;
+            padding: 20px;
+            max-width: calc(100% - 100px);
+        }
+        
+        .timeline-content h3 {
+            font-size: 1.1rem;
+        }
+        
+        .timeline-content .degree {
+            font-size: 0.9rem;
+        }
+        
+        .timeline-content .year {
+            font-size: 0.875rem;
+        }
+    }
+</style>
+
+<div class="education-timeline">
+    {% for item in education_data %}
+    <div class="timeline-item">
+        <div class="timeline-logo">
+            <img src="{{ url_for('static', filename=item.logo) }}" alt="{{ item.name }} logo">
+        </div>
+        <div class="timeline-content">
+            <h3>{{ item.name }}</h3>
+            <p class="degree">{{ item.degree }}</p>
+            <span class="year">{{ item.year }}</span>
+        </div>
+    </div>
+    {% endfor %}
+</div>

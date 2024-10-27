@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Inter, sans-serif;
     letter-spacing: -0.02em;
 }
 
@@ -51,8 +50,8 @@ body {
 
 /* Image placeholder on the right */
 .image-placeholder {
-    flex: 0 0 250px; /* Fixed width for the image on the right */
-    height: 100%; /* Placeholder height */
+    flex: 0 0 250px;
+    height: 100%;
     background-color: #333;
     border: 2px dashed #00aaff;
     display: flex;
@@ -60,11 +59,27 @@ body {
     align-items: center;
     color: #00aaff;
     font-size: 1.2rem;
+    overflow: hidden; /* Add this to prevent image overflow */
+}
+
+
+.subject {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.detail {
+    font-family: 'Poppins', sans-serif;
+    color: #93c5fd; /* Light blue for degree */
+    font-weight: 500;
+    font-size: 1.2rem;
 }
 
 .image-placeholder img {
-    width: 50%; /* Set image width to 50% of the container */
-    height: auto; /* Maintain aspect ratio */
+    width: 100%; /* Change to 100% to fill container width */
+    height: 100%; /* Change to 100% to fill container height */
+    object-fit: cover; /* This maintains aspect ratio while filling container */
 }
 
 .Skills-text {
@@ -88,7 +103,11 @@ body {
 
 /* Grid items style */
 .skill-image {
-    max-width: 100%;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin: 0 auto;
+    object-fit: contain;
     border: 2px solid #00aaff;
     border-radius: 10px;
     transition: all 0.3s ease-in-out;
