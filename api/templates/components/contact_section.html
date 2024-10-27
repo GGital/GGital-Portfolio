@@ -1,0 +1,184 @@
+<style>
+    /* Flash Messages Styling */
+    #flashMessages {
+        margin: 20px 0;
+    }
+    
+    #flashMessages ul {
+        margin: 0;
+        padding: 0;
+    }
+    
+    #flashMessages .alert {
+        border: none;
+        border-radius: 8px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        animation: slideIn 0.3s ease-out;
+    }
+    
+    #flashMessages .alert-success {
+        background-color: #d4edda;
+        border-left: 4px solid #28a745;
+        color: #155724;
+    }
+    
+    #flashMessages .alert-danger {
+        background-color: #f8d7da;
+        border-left: 4px solid #dc3545;
+        color: #721c24;
+    }
+    
+    #flashMessages .alert-warning {
+        background-color: #fff3cd;
+        border-left: 4px solid #ffc107;
+        color: #856404;
+    }
+    
+    #flashMessages .alert-info {
+        background-color: #cce5ff;
+        border-left: 4px solid #0d6efd;
+        color: #004085;
+    }
+    
+    /* Close button styling */
+    #flashMessages .btn-close {
+        opacity: 0.5;
+        transition: opacity 0.2s;
+    }
+    
+    #flashMessages .btn-close:hover {
+        opacity: 1;
+    }
+    
+    /* Animation keyframes */
+    @keyframes slideIn {
+        from {
+            transform: translateY(-20px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+    
+    @keyframes fadeOut {
+        from {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        to {
+            transform: translateY(-20px);
+            opacity: 0;
+        }
+    }
+    
+    .fade-out {
+        animation: fadeOut 0.3s ease-out forwards;
+    }
+    </style>
+    
+    <div class="content-section"> 
+        <div class="col-12 col-md-10 col-lg-8">
+            <h2 class="section-topic text-center w-100 fs-1">Contact Me</h2>
+            
+            <!-- Flash Messages Section -->
+            <div id="flashMessages">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        <ul class="list-unstyled">
+                            {% for category, message in messages %}
+                                <li class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                                    {{ message }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endwith %}
+            </div>
+    
+            <form id="contactForm" class="contact-form">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Your Name</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Your Email</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Your Message</label>
+                    <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(this);
+        const flashMessagesContainer = document.getElementById('flashMessages');
+        const submitButton = this.querySelector('button[type="submit"]');
+        
+        submitButton.disabled = true;
+        submitButton.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Sending...';
+        
+        fetch('/send-email', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Create flash message HTML
+            const messageHtml = `
+                <ul class="list-unstyled">
+                    <li class="alert alert-${data.status} alert-dismissible fade show" role="alert">
+                        ${data.message}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </li>
+                </ul>
+            `;
+            
+            flashMessagesContainer.innerHTML = messageHtml;
+            
+            if (data.status === 'success') {
+                this.reset();
+            }
+            
+            // Auto-hide message with animation
+            setTimeout(() => {
+                const alerts = flashMessagesContainer.querySelectorAll('.alert');
+                alerts.forEach(alert => {
+                    alert.classList.add('fade-out');
+                    setTimeout(() => {
+                        const bsAlert = new bootstrap.Alert(alert);
+                        bsAlert.close();
+                    }, 300); // Wait for animation to complete
+                });
+            }, 5000);
+        })
+        .catch(error => {
+            const errorHtml = `
+                <ul class="list-unstyled">
+                    <li class="alert alert-danger alert-dismissible fade show" role="alert">
+                        An error occurred while sending the message.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </li>
+                </ul>
+            `;
+            flashMessagesContainer.innerHTML = errorHtml;
+        })
+        .finally(() => {
+            submitButton.disabled = false;
+            submitButton.innerHTML = 'Send Message';
+        });
+    });
+    </script>

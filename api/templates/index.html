@@ -79,28 +79,7 @@
     </section>
 </div>
 
-<div class="content-section"> 
-    <div class="col-12 col-md-10 col-lg-8">
-      <h2 class="section-topic text-center w-100 fs-1">Contact Me</h2>
-      <form class="contact-form" action="{{ url_for('send_email') }}" method="POST">
-        <div class="mb-3">
-          <label for="name" class="form-label">Your Name</label>
-          <input type="text" class="form-control" id="name" name="name" required>
-        </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Your Email</label>
-          <input type="email" class="form-control" id="email" name="email" required>
-        </div>
-        <div class="mb-3">
-          <label for="message" class="form-label">Your Message</label>
-          <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
-        </div>
-        <div class="d-grid">
-          <button type="submit" class="btn btn-primary">Send Message</button>
-        </div>
-      </form>
-    </div>
-</div>
+{% include 'components/contact_section.html' %}
 
 <!-- Footer Component -->
 {% include 'components/footer.html' %}
