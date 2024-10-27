@@ -17,7 +17,28 @@ mail = Mail(app)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    # Project data
+    projects = [
+        {
+            "id": 1,
+            "title": "TOI19",
+            "description": "I have competed in the Thailand Olympics of Informatics and achieved 24th out of 90",
+            "image": "images/index/TOI19.jpg"
+        },
+        {
+            "id": 2,
+            "title": "NSC25 : Scambuster",
+            "description": "I have contributed in making the application to filter spam messages and calls.",
+            "image": "images/index/NSC_2.jpg"
+        },
+        {
+            "id": 3,
+            "title": "Super AI Engineer Season 4",
+            "description": "I have participated and achieved bronze medal from Super AI Engineer Season 4",
+            "image": "images/index/hero3.jpg"
+        }
+    ]
+    return render_template('index.html' , projects = projects)
 
 @app.route('/send-email', methods=['POST'])
 def send_email():

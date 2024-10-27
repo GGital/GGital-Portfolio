@@ -1,0 +1,130 @@
+<style>
+    .navbar {
+    background-color: #1a1a2e;
+    border-bottom: 2px solid #00aaff;
+    padding: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
+    font-weight: 800;
+  }
+
+    /* Navbar brand styling */
+    .navbar-brand {
+        font-size: 1rem;
+        font-family: Inter , sans-serif;
+        font-weight: 700;
+        color: #ffffff;
+        letter-spacing: 2px;
+    }
+    
+    /* Navbar links */
+    .navbar-nav .nav-link {
+        font-size: 1rem;
+        font-family: Inter, sans-serif;
+        margin-right: 20px;
+        color: #eaeaea;
+        position: relative;
+        transition: color 0.3s ease-in-out;
+    }
+    
+    .navbar .nav-link i {
+        margin-right: 0.5rem; /* Space between icons and text */
+    }
+    
+    .navbar .navbar-brand {
+        font-size: 1.3rem; /* Larger brand name */
+        display: flex;
+        align-items: center;
+    }
+    
+    .navbar .navbar-brand i {
+        margin-right: 0.5rem;
+        color: #00aaff; /* Light blue icon color */
+    }
+
+    .navbar-brand, .nav-link {
+        color: #fff;
+    }
+    
+    /* Glow Effect on Hover */
+    .navbar-nav .nav-link:hover {
+        color: #FFDD00;
+        text-shadow: 0 0 8px #FFDD00, 0 0 15px #FFDD00;
+    }
+    
+    .navbar-nav .nav-link::before {
+        content: '';
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        bottom: -5px;
+        left: 0;
+        background-color: #00aaff;
+        visibility: hidden;
+        transition: all 0.4s ease-in-out;
+    }
+    
+    .navbar-nav .nav-link:hover::before {
+        visibility: visible;
+        width: 100%;
+    }
+
+    /* Navbar Hover Glow Effect */
+    @keyframes navGlow {
+        from {
+        text-shadow: none;
+        }
+        to {
+        text-shadow: 0 0 10px #00aaff, 0 0 20px #00aaff;
+        }
+    }
+    
+    .navbar-nav .nav-link:hover {
+        animation: navGlow 0.6s forwards;
+    }
+    
+    /* Tweak font size and padding for larger elements */
+    .navbar-nav .nav-link {
+        padding: 10px 15px;
+    }
+    
+    .navbar-brand:hover {
+        text-shadow: 0 0 10px #00aaff, 0 0 20px #00aaff;
+    }
+
+</style>
+
+<!-- templates/components/navbar.html -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-top shadow-sm">
+    <div class="container-fluid">
+      <a class="navbar-brand animate-element" href="#">
+        <i class="fas fa-laptop-code animate-element"></i> GGital
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link animate-element" aria-current="page" href="{{ url_for('index') }}">
+              <i class="fas fa-home animate-element"></i> Home
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link animate-element" href="{{ url_for('portfolio') }}">
+              <i class="fas fa-briefcase animate-element"></i> Portfolio
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link animate-element" href="{{ url_for('popgital') }}">
+              <i class="fas fa-code animate-element"></i> PopGital
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link animate-element" href="{{ url_for('info') }}">
+              <i class="fas fa-envelope animate-element"></i> Profile
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>

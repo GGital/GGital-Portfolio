@@ -1,5 +1,5 @@
 // Typing Animation
-const texts = ['a Web Developer.', 'a Designer.', 'a Creative Thinker.'];
+const texts = ['AI Engineer.', 'Data Scientist.', 'Computer Vision Lover.'];
 let count = 0;
 let index = 0;
 let currentText = '';
